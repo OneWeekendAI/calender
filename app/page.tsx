@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { ThemePicker } from "./ThemePicker";
 import { COLORS, isLocked, isOverdue, todayStr, type Color, type Note } from "../lib/rules";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -55,6 +56,7 @@ export default function Page() {
       <header className="bar">
         <h1>{title}</h1>
         <div>
+          <ThemePicker />
           <button onClick={() => shift(-1)} aria-label="Previous month">&lsaquo;</button>
           <button onClick={() => shift(1)} aria-label="Next month">&rsaquo;</button>
         </div>
@@ -140,6 +142,7 @@ function DayView(props: {
           <h1>{title}</h1>
         </div>
         <div>
+          <ThemePicker />
           <button onClick={() => step(-1)} aria-label="Previous day">&lsaquo;</button>
           <button onClick={() => step(1)} aria-label="Next day">&rsaquo;</button>
         </div>
