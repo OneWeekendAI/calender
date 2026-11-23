@@ -152,7 +152,7 @@ function DayView(props: {
           <Sticky key={n.id} n={n} i={i} today={today} patch={patch} del={del} comment={comment} />
         ))}
         {adding ? (
-          <div className="sticky editor c-yellow-bg" style={{ background: `var(--${color})` }}>
+          <div className={`sticky editor c-${color}`}>
             <textarea autoFocus value={text} onChange={(e) => setText(e.target.value)} placeholder={"- bullet one\n- bullet two"} rows={6} />
             <div className="swatches">
               {COLORS.map((c) => (
@@ -178,9 +178,14 @@ function Sticky({ n, i, today, patch, del, comment }: { n: Note; i: number; toda
   const od = isOverdue(n, today);
   const locked = isLocked(n);
   const [cm, setCm] = useState("");
-  const rot = ((i * 37) % 7) - 3;
+  const rot = (((i * 37) % 7) - 3) * 0.8;
+  const tape = (((i * 5) % 5) - 2) * 1.5;
   return (
-    <div className={"sticky" + (n.completed ? " completed" : "") + (od ? " overdue" : "")} style={{ background: `var(--${n.color})`, transform: `rotate(${rot * 0.8}deg)` }}>
+    <div
+      className={`sticky c-${n.color}` + (n.completed ? " completed" : "") + (od ? " overdue" : "")}
+      style={{ "--rot": `${rot}deg`, "--tape": `${tape}deg` } as React.CSSProperties}
+    >
+      {locked && <LockIcon />}
       {od && <span className="od-badge">OVERDUE</span>}
       {editing ? (
         <>
@@ -202,7 +207,7 @@ function Sticky({ n, i, today, patch, del, comment }: { n: Note; i: number; toda
           )}
           {locked ? (
             <div className="row">
-              {n.completed ? <span>Done</span> : <label><input type="checkbox" checked={false} onChange={() => patch(n.id, { completed: true })} /> Done</label>}
+              {n.completed ? <span className="done-tag">Done</span> : <label><input type="checkbox" checked={false} onChange={() => patch(n.id, { completed: true })} /> Done</label>}
               <input className="cm" value={cm} onChange={(e) => setCm(e.target.value)} placeholder="Add comment" />
               <button onClick={async () => { if (cm.trim()) { await comment(n.id, cm); setCm(""); } }}>Comment</button>
             </div>
@@ -216,5 +221,14 @@ function Sticky({ n, i, today, patch, del, comment }: { n: Note; i: number; toda
         </>
       )}
     </div>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg className="lock" viewBox="0 0 16 16" role="img" aria-label="Locked" fill="currentColor">
+      <title>Locked</title>
+      <path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2H13v7H3V7h1.5zm1.5 0h4V5a2 2 0 0 0-4 0v2z" />
+    </svg>
   );
 }
