@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ThemePicker } from "./ThemePicker";
+import { addDays, addMonths } from "../lib/dates";
 import { COLORS, isLocked, isOverdue, todayStr, type Color, type Note } from "../lib/rules";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -18,11 +19,69 @@ async function fetchMonth(month: string): Promise<Note[]> {
   return r.ok ? r.json() : [];
 }
 
+// Global key handler: skips typing targets, modifier combos, and any open modal/overlay.
+function useKeys(fn: (e: KeyboardEvent) => void) {
+  const ref = useRef(fn);
+  useEffect(() => {
+    ref.current = fn;
+  });
+  useEffect(() => {
+    const h = (e: KeyboardEvent) => {
+      if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
+      const t = e.target as HTMLElement | null;
+      if (t && (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || t.isContentEditable)) return;
+      if (document.querySelector(".backdrop")) return;
+      ref.current(e);
+    };
+    window.addEventListener("keydown", h);
+    return () => window.removeEventListener("keydown", h);
+  }, []);
+}
+const onButton = (e: KeyboardEvent) => /^(BUTTON|A)$/.test((e.target as HTMLElement | null)?.tagName ?? "");
+
+const SHORTCUTS: [string, string][] = [
+  ["\u2190 \u2192", "Previous / next day"],
+  ["\u2191 \u2193", "Back / forward 7 days"],
+  ["[  ]", "Previous / next month (month view)"],
+  ["T", "Jump to today"],
+  ["M", "Month view"],
+  ["Enter or D", "Open the selected day"],
+  ["N", "New note (day view)"],
+  ["?", "This help"],
+  ["Esc", "Close any dialog"],
+];
+
+function ShortcutHelp({ close }: { close: () => void }) {
+  useEffect(() => {
+    const h = (e: KeyboardEvent) => {
+      if (e.key === "Escape" || e.key === "?") { e.preventDefault(); close(); }
+    };
+    window.addEventListener("keydown", h);
+    return () => window.removeEventListener("keydown", h);
+  }, [close]);
+  return (
+    <Modal onClose={close} label="Keyboard shortcuts" className="c-yellow help">
+      <h2 className="mtitle">Keyboard shortcuts</h2>
+      <dl className="keys">
+        {SHORTCUTS.map(([k, d]) => (
+          <div key={k}>
+            <dt><kbd>{k}</kbd></dt>
+            <dd>{d}</dd>
+          </div>
+        ))}
+      </dl>
+      <div className="row mfoot"><button onClick={close} className="push" autoFocus>Close</button></div>
+    </Modal>
+  );
+}
+
 export default function Page() {
   const [now] = useState(() => new Date());
   const today = todayStr(now);
   const [view, setView] = useState({ y: now.getFullYear(), m: now.getMonth() });
   const [day, setDay] = useState<string | null>(null);
+  const [sel, setSel] = useState(today);
+  const [help, setHelp] = useState(false);
   const [notes, setNotes] = useState<Note[]>([]);
   const month = day ? day.slice(0, 7) : `${view.y}-${p2(view.m + 1)}`;
 
@@ -35,7 +94,29 @@ export default function Page() {
     };
   }, [month]);
 
-  if (day) return <DayView day={day} today={today} notes={notes.filter((n) => n.date === day)} reload={load} go={setDay} back={() => { setView({ y: parse(day).getFullYear(), m: parse(day).getMonth() }); setDay(null); }} />;
+  const move = (ds: string) => {
+    setSel(ds);
+    setView({ y: parse(ds).getFullYear(), m: parse(ds).getMonth() });
+  };
+  useKeys((e) => {
+    if (e.key === "?") { e.preventDefault(); setHelp(true); return; }
+    if (day) return;
+    const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    const to: Record<string, string> = {
+      ArrowLeft: addDays(sel, -1), ArrowRight: addDays(sel, 1), ArrowUp: addDays(sel, -7), ArrowDown: addDays(sel, 7),
+      "[": addMonths(sel, -1), "]": addMonths(sel, 1), PageUp: addMonths(sel, -1), PageDown: addMonths(sel, 1), t: today,
+    };
+    if (to[k]) { e.preventDefault(); move(to[k]); }
+    else if (k === "d" || (k === "Enter" && !onButton(e))) { e.preventDefault(); setDay(sel); }
+  });
+  const extras = (
+    <>
+      {help && <ShortcutHelp close={() => setHelp(false)} />}
+      <button className="keyhint" onClick={() => setHelp(true)} aria-label="Keyboard shortcuts" title="Keyboard shortcuts (?)">?</button>
+    </>
+  );
+
+  if (day) return <><DayView day={day} today={today} notes={notes.filter((n) => n.date === day)} reload={load} go={setDay} back={() => { setSel(day); setView({ y: parse(day).getFullYear(), m: parse(day).getMonth() }); setDay(null); }} />{extras}</>;
 
   const first = new Date(view.y, view.m, 1);
   const daysInMonth = new Date(view.y, view.m + 1, 0).getDate();
@@ -45,10 +126,7 @@ export default function Page() {
     const d = i - lead + 1;
     return d >= 1 && d <= daysInMonth ? d : null;
   });
-  const shift = (n: number) => {
-    const d = new Date(view.y, view.m + n, 1);
-    setView({ y: d.getFullYear(), m: d.getMonth() });
-  };
+  const shift = (n: number) => move(addMonths(sel, n));
   const title = first.toLocaleString("en-US", { month: "long", year: "numeric" });
 
   return (
@@ -75,7 +153,8 @@ export default function Page() {
           return (
             <div
               key={i}
-              className={"cell clickable" + (overdue ? " has-overdue" : "")}
+              className={"cell clickable" + (overdue ? " has-overdue" : "") + (ds === sel ? " sel" : "")}
+              data-sel={ds === sel ? "true" : undefined}
               onClick={() => setDay(ds)}
               role="button"
               aria-label={`Open ${ds}`}
@@ -91,6 +170,7 @@ export default function Page() {
           );
         })}
       </div>
+      {extras}
     </main>
   );
 }
@@ -113,6 +193,14 @@ function DayView(props: {
     d.setDate(d.getDate() + n);
     go(fromDate(d));
   };
+  useKeys((e) => {
+    const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    const d: Record<string, number> = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 };
+    if (k in d) { e.preventDefault(); step(d[k]); }
+    else if (k === "t") go(today);
+    else if (k === "m") back();
+    else if (k === "n") { e.preventDefault(); setAdding(true); }
+  });
   const title = parse(day).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
 
   const add = async (text: string, color: Color) => {
