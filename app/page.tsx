@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ThemePicker } from "./ThemePicker";
 import { addDays, addMonths } from "../lib/dates";
+import { client, isTauri } from "../lib/client";
 import { COLORS, isLocked, isOverdue, todayStr, type Color, type Note } from "../lib/rules";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -14,10 +15,7 @@ const parse = (s: string) => {
 };
 const fromDate = (d: Date) => ymd(d.getFullYear(), d.getMonth(), d.getDate());
 
-async function fetchMonth(month: string): Promise<Note[]> {
-  const r = await fetch(`/api/notes?month=${month}`, { cache: "no-store" });
-  return r.ok ? r.json() : [];
-}
+const fetchMonth = (month: string): Promise<Note[]> => client().list(month);
 
 // Global key handler: skips typing targets, modifier combos, and any open modal/overlay.
 function useKeys(fn: (e: KeyboardEvent) => void) {
@@ -76,6 +74,9 @@ function ShortcutHelp({ close }: { close: () => void }) {
 }
 
 export default function Page() {
+  useEffect(() => {
+    if (isTauri()) document.documentElement.classList.add("tauri");
+  }, []);
   const [now] = useState(() => new Date());
   const today = todayStr(now);
   const [view, setView] = useState({ y: now.getFullYear(), m: now.getMonth() });
@@ -204,21 +205,22 @@ function DayView(props: {
   const title = parse(day).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
 
   const add = async (text: string, color: Color) => {
-    await fetch("/api/notes", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ date: day, text, color }) });
+    const r = await client().add(day, text, color);
+    if (!r.ok) setError(r.error);
     setAdding(false);
     await reload();
   };
-  const patch = async (id: string, body: object) => {
-    await fetch("/api/notes", { method: "PATCH", headers: { "content-type": "application/json" }, body: JSON.stringify({ month: day.slice(0, 7), id, ...body }) });
+  const patch = async (id: string, body: { text?: string; color?: Color; completed?: boolean }) => {
+    await client().patch(day.slice(0, 7), id, body);
     await reload();
   };
   const comment = async (id: string, t: string) => {
-    await fetch("/api/notes", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ month: day.slice(0, 7), id, comment: t }) });
+    await client().comment(day.slice(0, 7), id, t);
     await reload();
   };
   const del = async (id: string) => {
-    const r = await fetch(`/api/notes?month=${day.slice(0, 7)}&id=${id}`, { method: "DELETE" });
-    setError(r.ok ? "" : (await r.json()).error);
+    const r = await client().remove(day.slice(0, 7), id);
+    setError(r.ok ? "" : r.error);
     await reload();
   };
 

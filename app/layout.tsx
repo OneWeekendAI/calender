@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { themeBootScript, themeCss } from "./themes";
 
-export const metadata: Metadata = { title: "Calendar" };
+export const metadata: Metadata = { title: "meetcal" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <div className="bgfx" aria-hidden="true" />
+        <div className="drag" data-tauri-drag-region />
         {children}
       </body>
     </html>

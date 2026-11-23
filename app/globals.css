@@ -326,3 +326,10 @@ html[data-theme] .add:hover { border-color: var(--accent); color: var(--accent);
 .keys dd { font-family: var(--hand); font-size: 1.15rem; }
 .keys kbd { font-family: var(--ui); font-size: .8rem; font-weight: 600; background: rgba(255,255,255,.6); border: 1px solid rgba(0,0,0,.3); border-bottom-width: 2px; border-radius: 4px; padding: 1px 7px; white-space: nowrap; }
 @media (max-width: 640px) { .keyhint { display: none; } .sticky.modal.help { min-height: 0; margin: auto 16px; max-width: none; border-radius: 3px; } .backdrop:has(.help) { padding: 16px; align-items: center; } }
+
+/* Desktop shell: overlay title bar leaves room for the traffic lights and a drag strip. */
+.drag { display: none; }
+html.tauri .drag { display: block; position: fixed; top: 0; left: 0; right: 0; height: 34px; z-index: 5; }
+html.tauri .cal { padding-top: 40px; }
+html.tauri body { user-select: none; -webkit-user-select: none; }
+html.tauri textarea, html.tauri input { user-select: text; -webkit-user-select: text; }
