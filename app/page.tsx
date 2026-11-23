@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { COLORS, canDelete, isOverdue, todayStr, type Color, type Note } from "../lib/rules";
+import { COLORS, isLocked, isOverdue, todayStr, type Color, type Note } from "../lib/rules";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const p2 = (n: number) => String(n).padStart(2, "0");
@@ -124,6 +124,10 @@ function DayView(props: {
     await fetch("/api/notes", { method: "PATCH", headers: { "content-type": "application/json" }, body: JSON.stringify({ month: day.slice(0, 7), id, ...body }) });
     await reload();
   };
+  const comment = async (id: string, t: string) => {
+    await fetch("/api/notes", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ month: day.slice(0, 7), id, comment: t }) });
+    await reload();
+  };
   const del = async (id: string) => {
     const r = await fetch(`/api/notes?month=${day.slice(0, 7)}&id=${id}`, { method: "DELETE" });
     setError(r.ok ? "" : (await r.json()).error);
@@ -145,7 +149,7 @@ function DayView(props: {
       {error && <p className="err">{error}</p>}
       <div className="board">
         {notes.map((n, i) => (
-          <Sticky key={n.id} n={n} i={i} today={today} patch={patch} del={del} />
+          <Sticky key={n.id} n={n} i={i} today={today} patch={patch} del={del} comment={comment} />
         ))}
         {adding ? (
           <div className="sticky editor c-yellow-bg" style={{ background: `var(--${color})` }}>
@@ -168,10 +172,12 @@ function DayView(props: {
   );
 }
 
-function Sticky({ n, i, today, patch, del }: { n: Note; i: number; today: string; patch: (id: string, b: object) => Promise<void>; del: (id: string) => Promise<void> }) {
+function Sticky({ n, i, today, patch, del, comment }: { n: Note; i: number; today: string; patch: (id: string, b: object) => Promise<void>; del: (id: string) => Promise<void>; comment: (id: string, t: string) => Promise<void> }) {
   const [editing, setEditing] = useState(false);
   const [val, setVal] = useState(n.text);
   const od = isOverdue(n, today);
+  const locked = isLocked(n);
+  const [cm, setCm] = useState("");
   const rot = ((i * 37) % 7) - 3;
   return (
     <div className={"sticky" + (n.completed ? " completed" : "") + (od ? " overdue" : "")} style={{ background: `var(--${n.color})`, transform: `rotate(${rot * 0.8}deg)` }}>
@@ -187,11 +193,26 @@ function Sticky({ n, i, today, patch, del }: { n: Note; i: number; today: string
       ) : (
         <>
           <p className="txt">{n.text}</p>
-          <div className="row">
-            <label><input type="checkbox" checked={n.completed} onChange={(e) => patch(n.id, { completed: e.target.checked })} /> Done</label>
-            <button onClick={() => setEditing(true)}>Edit</button>
-            {canDelete(n.createdAt) && <button onClick={() => del(n.id)}>Delete</button>}
-          </div>
+          {(n.comments ?? []).length > 0 && (
+            <ul className="comments">
+              {n.comments.map((c) => (
+                <li key={c.id}>{c.text}</li>
+              ))}
+            </ul>
+          )}
+          {locked ? (
+            <div className="row">
+              <span>{n.completed ? "Done" : "Locked"}</span>
+              <input className="cm" value={cm} onChange={(e) => setCm(e.target.value)} placeholder="Add comment" />
+              <button onClick={async () => { if (cm.trim()) { await comment(n.id, cm); setCm(""); } }}>Comment</button>
+            </div>
+          ) : (
+            <div className="row">
+              <label><input type="checkbox" checked={n.completed} onChange={(e) => patch(n.id, { completed: e.target.checked })} /> Done</label>
+              <button onClick={() => setEditing(true)}>Edit</button>
+              <button onClick={() => del(n.id)}>Delete</button>
+            </div>
+          )}
         </>
       )}
     </div>
