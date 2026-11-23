@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { COLORS, isLocked, isOverdue, todayStr, type Color, type Note } from "../lib/rules";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -102,9 +102,9 @@ function DayView(props: {
   back: () => void;
 }) {
   const { day, today, notes, reload, go, back } = props;
-  const [text, setText] = useState("");
-  const [color, setColor] = useState<Color>("yellow");
   const [adding, setAdding] = useState(false);
+  const [openId, setOpenId] = useState<string | null>(null);
+  const opened = notes.find((n) => n.id === openId) ?? null;
   const [error, setError] = useState("");
   const step = (n: number) => {
     const d = parse(day);
@@ -113,10 +113,8 @@ function DayView(props: {
   };
   const title = parse(day).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
 
-  const add = async () => {
-    if (!text.trim()) return;
+  const add = async (text: string, color: Color) => {
     await fetch("/api/notes", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ date: day, text, color }) });
-    setText("");
     setAdding(false);
     await reload();
   };
@@ -149,78 +147,169 @@ function DayView(props: {
       {error && <p className="err">{error}</p>}
       <div className="board">
         {notes.map((n, i) => (
-          <Sticky key={n.id} n={n} i={i} today={today} patch={patch} del={del} comment={comment} />
+          <Compact key={n.id} n={n} i={i} today={today} open={() => setOpenId(n.id)} patch={patch} />
         ))}
-        {adding ? (
-          <div className={`sticky editor c-${color}`}>
-            <textarea autoFocus value={text} onChange={(e) => setText(e.target.value)} placeholder={"- bullet one\n- bullet two"} rows={6} />
-            <div className="swatches">
-              {COLORS.map((c) => (
-                <button key={c} aria-label={c} className={"swatch" + (c === color ? " sel" : "")} style={{ background: `var(--${c})` }} onClick={() => setColor(c)} />
-              ))}
-            </div>
-            <div className="row">
-              <button onClick={add}>Save</button>
-              <button onClick={() => { setAdding(false); setText(""); }}>Cancel</button>
-            </div>
-          </div>
-        ) : (
-          <button className="add" onClick={() => setAdding(true)}>+ Add note</button>
-        )}
+        <button className="add" onClick={() => setAdding(true)}>+ Add note</button>
       </div>
+      {adding && <Editor title="New note" initial="" initialColor="yellow" onCancel={() => setAdding(false)} onSave={add} />}
+      {opened && <Expanded n={opened} today={today} close={() => setOpenId(null)} patch={patch} del={async (id) => { await del(id); setOpenId(null); }} comment={comment} />}
     </main>
   );
 }
 
-function Sticky({ n, i, today, patch, del, comment }: { n: Note; i: number; today: string; patch: (id: string, b: object) => Promise<void>; del: (id: string) => Promise<void>; comment: (id: string, t: string) => Promise<void> }) {
-  const [editing, setEditing] = useState(false);
-  const [val, setVal] = useState(n.text);
+// Enter on a "- " line continues the bullet; Enter on an empty bullet ends the list.
+function bulletEnter(e: React.KeyboardEvent<HTMLTextAreaElement>, set: (v: string) => void, caretRef: { current: number | null }) {
+  if (e.key !== "Enter" || e.shiftKey || e.metaKey || e.ctrlKey || e.nativeEvent.isComposing) return;
+  const el = e.currentTarget;
+  const { selectionStart: s, selectionEnd: en, value } = el;
+  const ls = value.lastIndexOf("\n", s - 1) + 1;
+  const line = value.slice(ls, s);
+  if (!line.startsWith("- ")) return;
+  e.preventDefault();
+  let next: string, caret: number;
+  if (line === "- ") {
+    next = value.slice(0, ls) + value.slice(en);
+    caret = ls;
+  } else {
+    next = value.slice(0, s) + "\n- " + value.slice(en);
+    caret = s + 3;
+  }
+  set(next);
+  caretRef.current = caret;
+}
+
+function Modal({ children, onClose, label, className = "" }: { children: React.ReactNode; onClose: () => void; label: string; className?: string }) {
+  return (
+    <div className="backdrop" onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className={`sticky modal ${className}`} role="dialog" aria-modal="true" aria-label={label}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function Editor({ title, initial, initialColor, onSave, onCancel, hideColor }: { title: string; initial: string; initialColor: Color; onSave: (text: string, color: Color) => Promise<void>; onCancel: () => void; hideColor?: boolean }) {
+  const [text, setText] = useState(initial);
+  const [color, setColor] = useState<Color>(initialColor);
+  const [busy, setBusy] = useState(false);
+  const caretRef = useRef<number | null>(null);
+  const taRef = useRef<HTMLTextAreaElement>(null);
+  useLayoutEffect(() => {
+    if (caretRef.current !== null && taRef.current) taRef.current.setSelectionRange(caretRef.current, caretRef.current);
+    caretRef.current = null;
+  }, [text]);
+  const can = text.trim().length > 0 && !busy;
+  const save = async () => {
+    if (!can) return;
+    setBusy(true);
+    await onSave(text, color);
+  };
+  return (
+    <div className="backdrop" onMouseDown={(e) => { if (e.target === e.currentTarget) onCancel(); }}>
+      <div
+        className={`sticky modal editor c-${color}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") onCancel();
+          else if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); save(); }
+        }}
+      >
+        <h2 className="mtitle">{title}</h2>
+        <textarea ref={taRef} autoFocus value={text} onChange={(e) => setText(e.target.value)} onKeyDown={(e) => bulletEnter(e, setText, caretRef)} placeholder={"Write your note...\n- start a bullet list with a dash"} aria-label="Note text" />
+        <div className="mfoot">
+          {!hideColor && (
+            <div className="swatches" role="radiogroup" aria-label="Color">
+              {COLORS.map((c) => (
+                <button key={c} role="radio" aria-checked={c === color} aria-label={c} className={"swatch" + (c === color ? " sel" : "")} style={{ background: `var(--${c})` }} onClick={() => setColor(c)} />
+              ))}
+            </div>
+          )}
+          <div className="row">
+            <span className="hint">Cmd/Ctrl+Enter to save, Esc to cancel</span>
+            <button className="primary" onClick={save} disabled={!can}>Save</button>
+            <button onClick={onCancel}>Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Compact({ n, i, today, open, patch }: { n: Note; i: number; today: string; open: () => void; patch: (id: string, b: object) => Promise<void> }) {
   const od = isOverdue(n, today);
   const locked = isLocked(n);
-  const [cm, setCm] = useState("");
   const rot = (((i * 37) % 7) - 3) * 0.8;
   const tape = (((i * 5) % 5) - 2) * 1.5;
+  const cc = (n.comments ?? []).length;
   return (
     <div
-      className={`sticky c-${n.color}` + (n.completed ? " completed" : "") + (od ? " overdue" : "")}
+      className={`sticky compact c-${n.color}` + (n.completed ? " completed" : "") + (od ? " overdue" : "")}
       style={{ "--rot": `${rot}deg`, "--tape": `${tape}deg` } as React.CSSProperties}
+      role="button"
+      tabIndex={0}
+      aria-label={`Open note: ${n.text.slice(0, 60)}`}
+      onClick={open}
+      onKeyDown={(e) => { if (e.target === e.currentTarget && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); open(); } }}
     >
+      {od && <span className="od-badge">OVERDUE</span>}
+      <p className="txt clamp">{n.text}</p>
+      <div className="cfoot">
+        <button
+          className={"tick" + (n.completed ? " on" : "")}
+          aria-label={n.completed ? "Done" : "Mark done"}
+          aria-pressed={n.completed}
+          disabled={n.completed && locked}
+          onClick={(e) => { e.stopPropagation(); patch(n.id, { completed: !n.completed }); }}
+        >
+          {n.completed ? "\u2713" : ""}
+        </button>
+        <span className="cm-aff">comment{cc > 0 ? ` (${cc})` : ""}</span>
+        {locked && <LockIcon />}
+      </div>
+    </div>
+  );
+}
+
+function Expanded({ n, today, close, patch, del, comment }: { n: Note; today: string; close: () => void; patch: (id: string, b: object) => Promise<void>; del: (id: string) => Promise<void>; comment: (id: string, t: string) => Promise<void> }) {
+  const [editing, setEditing] = useState(false);
+  const [cm, setCm] = useState("");
+  const od = isOverdue(n, today);
+  const locked = isLocked(n);
+  useEffect(() => {
+    if (editing) return;
+    const h = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
+    window.addEventListener("keydown", h);
+    return () => window.removeEventListener("keydown", h);
+  }, [editing, close]);
+  if (editing) return <Editor title="Edit note" initial={n.text} initialColor={n.color} onCancel={() => setEditing(false)} onSave={async (t, c) => { await patch(n.id, c !== n.color ? { text: t, color: c } : { text: t }); setEditing(false); }} />;
+  const send = async () => { if (cm.trim()) { await comment(n.id, cm); setCm(""); } };
+  return (
+    <Modal onClose={close} label="Note" className={`c-${n.color}` + (n.completed ? " completed" : "") + (od ? " od-modal" : "")}>
       {locked && <LockIcon />}
       {od && <span className="od-badge">OVERDUE</span>}
-      {editing ? (
-        <>
-          <textarea value={val} onChange={(e) => setVal(e.target.value)} rows={6} />
-          <div className="row">
-            <button onClick={async () => { await patch(n.id, { text: val }); setEditing(false); }}>Save</button>
-            <button onClick={() => { setVal(n.text); setEditing(false); }}>Cancel</button>
-          </div>
-        </>
-      ) : (
-        <>
-          <p className="txt">{n.text}</p>
-          {(n.comments ?? []).length > 0 && (
-            <ul className="comments">
-              {n.comments.map((c) => (
-                <li key={c.id}>{c.text}</li>
-              ))}
-            </ul>
-          )}
-          {locked ? (
-            <div className="row">
-              {n.completed ? <span className="done-tag">Done</span> : <label><input type="checkbox" checked={false} onChange={() => patch(n.id, { completed: true })} /> Done</label>}
-              <input className="cm" value={cm} onChange={(e) => setCm(e.target.value)} placeholder="Add comment" />
-              <button onClick={async () => { if (cm.trim()) { await comment(n.id, cm); setCm(""); } }}>Comment</button>
-            </div>
-          ) : (
-            <div className="row">
-              <label><input type="checkbox" checked={n.completed} onChange={(e) => patch(n.id, { completed: e.target.checked })} /> Done</label>
-              <button onClick={() => setEditing(true)}>Edit</button>
-              <button onClick={() => del(n.id)}>Delete</button>
-            </div>
-          )}
-        </>
+      <p className="txt full">{n.text}</p>
+      {(n.comments ?? []).length > 0 && (
+        <ul className="comments">
+          {n.comments.map((c) => (
+            <li key={c.id}>{c.text}</li>
+          ))}
+        </ul>
       )}
-    </div>
+      <div className="row cmrow">
+        <input className="cm" value={cm} onChange={(e) => setCm(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") send(); }} placeholder="Add comment" aria-label="Add comment" />
+        <button onClick={send} disabled={!cm.trim()}>Comment</button>
+      </div>
+      <div className="row mfoot">
+        {n.completed && locked ? <span className="done-tag">Done &#10003;</span> : (
+          <label><input type="checkbox" checked={n.completed} onChange={(e) => patch(n.id, { completed: e.target.checked })} /> Done</label>
+        )}
+        {!locked && <button onClick={() => setEditing(true)}>Edit</button>}
+        {!locked && <button onClick={() => del(n.id)}>Delete</button>}
+        <button onClick={close} className="push">Close</button>
+      </div>
+    </Modal>
   );
 }
 
