@@ -309,3 +309,4 @@ html[data-theme] .bar .tp-tile, .bar .tp-tile { background: none; }
 html[data-theme] .add { background: var(--panel); border-color: var(--line); color: var(--fg); }
 html[data-theme] .add:hover { border-color: var(--accent); color: var(--accent); }
 @media (max-width: 640px) { .tp-pop { position: fixed; right: 12px; left: 12px; top: 64px; width: auto; max-height: calc(100dvh - 80px); overflow: auto; } }
+.missed { font-family: var(--hand); font-weight: 700; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; border: 2px solid currentColor; border-radius: 4px; padding: 0 6px; transform: rotate(-4deg); }

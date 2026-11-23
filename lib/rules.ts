@@ -32,13 +32,16 @@ export function isOverdue(
   return note.date < today && !note.completed;
 }
 
-// Whether a PATCH may be applied. Unlocked: anything. Locked: only the
-// one-way change completed false -> true (nothing else in the patch).
+// Whether a PATCH may be applied. An overdue note (past day, not completed)
+// can never be marked completed. Otherwise unlocked: anything. Locked: only
+// the one-way change completed false -> true (nothing else in the patch).
 export function canPatch(
-  note: { createdAt: number; completed: boolean },
+  note: { createdAt: number; completed: boolean; date?: string },
   patch: { text?: unknown; color?: unknown; completed?: unknown },
   now: number = Date.now(),
+  today: string = todayStr(new Date(now)),
 ): boolean {
+  if (note.date !== undefined && isOverdue({ date: note.date, completed: note.completed }, today) && patch.completed === true) return false;
   if (!isLocked(note, now)) return true;
   if (patch.text !== undefined || patch.color !== undefined) return false;
   return patch.completed === true;

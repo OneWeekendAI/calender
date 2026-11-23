@@ -259,7 +259,7 @@ function Compact({ n, i, today, open, patch }: { n: Note; i: number; today: stri
       {od && <span className="od-badge">OVERDUE</span>}
       <p className="txt clamp">{n.text}</p>
       <div className="cfoot">
-        <button
+        {od ? <span className="missed" title="Overdue notes can no longer be completed">missed</span> : <button
           className={"tick" + (n.completed ? " on" : "")}
           aria-label={n.completed ? "Done" : "Mark done"}
           aria-pressed={n.completed}
@@ -267,7 +267,7 @@ function Compact({ n, i, today, open, patch }: { n: Note; i: number; today: stri
           onClick={(e) => { e.stopPropagation(); patch(n.id, { completed: !n.completed }); }}
         >
           {n.completed ? "\u2713" : ""}
-        </button>
+        </button>}
         <span className="cm-aff">comment{cc > 0 ? ` (${cc})` : ""}</span>
         {locked && <LockIcon />}
       </div>
@@ -305,7 +305,7 @@ function Expanded({ n, today, close, patch, del, comment }: { n: Note; today: st
         <button onClick={send} disabled={!cm.trim()}>Comment</button>
       </div>
       <div className="row mfoot">
-        {n.completed && locked ? <span className="done-tag">Done &#10003;</span> : (
+        {od ? <span className="missed">missed</span> : n.completed && locked ? <span className="done-tag">Done &#10003;</span> : (
           <label><input type="checkbox" checked={n.completed} onChange={(e) => patch(n.id, { completed: e.target.checked })} /> Done</label>
         )}
         {!locked && <button onClick={() => setEditing(true)}>Edit</button>}

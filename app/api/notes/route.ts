@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { randomUUID } from "crypto";
-import { COLORS, canPatch, isLocked, type Color, type Note } from "../../../lib/rules";
+import { COLORS, canPatch, isLocked, isOverdue, type Color, type Note } from "../../../lib/rules";
 import { readMonth, writeMonth, validMonth, validDate } from "../../../lib/store";
 
 export const dynamic = "force-dynamic";
@@ -51,6 +51,7 @@ export async function PATCH(req: Request) {
   const notes = await readMonth(month);
   const n = notes.find((x) => x.id === b.id);
   if (!n) return err("not found", 404);
+  if (isOverdue(n) && b.completed === true) return err("note is overdue; it can no longer be marked completed (comments are still allowed)", 403);
   if (!canPatch(n, b)) return err("note is locked (older than 1 hour); only marking it completed or adding a comment is allowed", 403);
   if (typeof b.text === "string" && b.text.trim()) n.text = b.text;
   if (typeof b.completed === "boolean") n.completed = b.completed;

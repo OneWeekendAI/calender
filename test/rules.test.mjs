@@ -37,3 +37,17 @@ test("locked PATCH color rejected", () => {
 test("unlocked PATCH anything allowed", () => {
   assert.equal(canPatch({ createdAt: now - 59 * MIN, completed: true }, { text: "x", completed: false }, now), true);
 });
+
+const past = { ...old, date: "2026-11-23" };
+test("overdue note cannot be marked completed (locked)", () => {
+  assert.equal(canPatch(past, { completed: true }, now, "2026-11-24"), false);
+});
+test("overdue note cannot be marked completed (unlocked)", () => {
+  assert.equal(canPatch({ ...past, createdAt: now }, { completed: true }, now, "2026-11-24"), false);
+});
+test("locked note due today may still be completed", () => {
+  assert.equal(canPatch({ ...old, date: "2026-11-24" }, { completed: true }, now, "2026-11-24"), true);
+});
+test("overdue unlocked note may still be edited", () => {
+  assert.equal(canPatch({ ...past, createdAt: now }, { text: "x" }, now, "2026-11-24"), true);
+});
