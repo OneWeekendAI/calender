@@ -202,7 +202,7 @@ function Sticky({ n, i, today, patch, del, comment }: { n: Note; i: number; toda
           )}
           {locked ? (
             <div className="row">
-              <span>{n.completed ? "Done" : "Locked"}</span>
+              {n.completed ? <span>Done</span> : <label><input type="checkbox" checked={false} onChange={() => patch(n.id, { completed: true })} /> Done</label>}
               <input className="cm" value={cm} onChange={(e) => setCm(e.target.value)} placeholder="Add comment" />
               <button onClick={async () => { if (cm.trim()) { await comment(n.id, cm); setCm(""); } }}>Comment</button>
             </div>
