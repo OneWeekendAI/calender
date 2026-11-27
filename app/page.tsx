@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { ThemePicker } from "./ThemePicker";
 import { addDays, addMonths } from "../lib/dates";
 import { client, isTauri } from "../lib/client";
@@ -133,7 +134,10 @@ export default function Page() {
   return (
     <main className="cal">
       <header className="bar">
-        <h1>{title}</h1>
+        <div className="bar-left">
+          <h1>{title}</h1>
+          <Link href="/hackathons" className="hk-link">Hackathons &rsaquo;</Link>
+        </div>
         <div>
           <ThemePicker />
           <button onClick={() => shift(-1)} aria-label="Previous month">&lsaquo;</button>

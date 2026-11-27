@@ -1,0 +1,1395 @@
+[
+  {
+    "id": "buildhybridai-2026",
+    "name": "#BuildHybridAI 2026",
+    "theme": "AI, mobile, web",
+    "tags": [
+      "ai",
+      "mobile",
+      "web"
+    ],
+    "mode": "Online",
+    "start": "2026-11-11",
+    "deadline": "2026-11-30",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://firebasehybridaihackathon.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "founders-house-kolkata-teams-3-5",
+    "name": "Founders' House Kolkata (teams 3-5)",
+    "theme": "Startup, open",
+    "tags": [
+      "startup",
+      "open"
+    ],
+    "mode": "Hybrid",
+    "start": "2026-11-09",
+    "deadline": "2026-11-30",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://founders-house-kolkata.devfolio.co/",
+    "source": "Devfolio",
+    "dateNote": "start: Nov 9, 2026 (live); deadline: Nov 30, 2026 (applications)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": [],
+    "modeNote": "Hybrid (online selection; Kolkata build Dec 18-20)"
+  },
+  {
+    "id": "anna-ai-app-builder-program",
+    "name": "Anna AI App Builder Program",
+    "theme": "AI apps, LLM",
+    "tags": [
+      "ai apps",
+      "llm"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-11-30",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://dorahacks.io/hackathon",
+    "source": "DoraHacks",
+    "dateNote": "start: Ongoing (extended); deadline: ~Nov 30, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "code-for-change-s",
+    "name": "Code for Change (S)",
+    "theme": "Social-good software",
+    "tags": [
+      "social-good software"
+    ],
+    "mode": "Online",
+    "start": "2026-11-05",
+    "deadline": "2026-12-01",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://code-for-change-global.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "kaggle-playground-s6e11-credit-card-fraud",
+    "name": "Kaggle Playground S6E11: Credit Card Fraud",
+    "theme": "ML",
+    "tags": [
+      "ml"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-01",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.kaggle.com/competitions",
+    "source": "Kaggle (Google)",
+    "dateNote": "start: Ongoing; deadline: ~Dec 1, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "thanksgiving-thank-you-hackathon-s-13",
+    "name": "thanksgiving thank you hackathon (S, 13+)",
+    "theme": "Social good, web, low-code",
+    "tags": [
+      "social good",
+      "web",
+      "low-code"
+    ],
+    "mode": "Online",
+    "start": "2026-11-27",
+    "deadline": "2026-12-01",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://thanksgiving-hackathon.devpost.com/",
+    "source": "Devpost (page 2+)",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "ml-empowerment-build-challenge-4-0-s",
+    "name": "ML Empowerment Build Challenge 4.0 (S)",
+    "theme": "ML/AI",
+    "tags": [
+      "ml",
+      "ai"
+    ],
+    "mode": "Online",
+    "start": "2026-11-01",
+    "deadline": "2026-12-02",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://ml-build-challenge-4.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "mozilla-otari-wilding-jam-sesh-1",
+    "name": "Mozilla Otari Wilding Jam Sesh #1",
+    "theme": "Open source local AI",
+    "tags": [
+      "open source local ai"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-02",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://dorahacks.io/hackathon",
+    "source": "DoraHacks",
+    "dateNote": "start: Ongoing; deadline: ~Dec 2, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "codeastra-india-2026",
+    "name": "CodeAstra India 2026",
+    "theme": "Full-stack, AI/ML",
+    "tags": [
+      "full-stack",
+      "ai",
+      "ml"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-02",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.insiderone.in/go/event/85a0c027-7246-4e66-bf19-8d4adac0b6b8",
+    "source": "insiderOne aggregator",
+    "dateNote": "start: Open now; deadline: ~Dec 2, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "codecrafters-india-2026",
+    "name": "CodeCrafters India 2026",
+    "theme": "Full-stack, web",
+    "tags": [
+      "full-stack",
+      "web"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-02",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.insiderone.in/go/event/c7a24581-47d2-4ef2-867b-acd5777ab69f",
+    "source": "insiderOne aggregator",
+    "dateNote": "start: Open now; deadline: ~Dec 2, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "nexora-ai-national-hackathon-2026",
+    "name": "Nexora AI National Hackathon 2026",
+    "theme": "AI, software",
+    "tags": [
+      "ai",
+      "software"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-03",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.insiderone.in/go/event/3a9bab50-9344-4913-932d-5012494a77a6",
+    "source": "Indian college",
+    "dateNote": "start: Open now; deadline: ~Dec 3, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "kiroween-2026",
+    "name": "Kiroween 2026",
+    "theme": "AI, open ended",
+    "tags": [
+      "ai",
+      "open ended"
+    ],
+    "mode": "Online",
+    "start": "2026-10-30",
+    "deadline": "2026-12-04",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://kiroween.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "launchpad-hacks-s",
+    "name": "LaunchPad Hacks (S)",
+    "theme": "Open ended",
+    "tags": [
+      "open ended"
+    ],
+    "mode": "Online",
+    "start": "2026-10-16",
+    "deadline": "2026-12-04",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://launchpad-hacks.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "ai-for-medicine-s-14",
+    "name": "AI for Medicine (S, 14+)",
+    "theme": "Health AI",
+    "tags": [
+      "health ai"
+    ],
+    "mode": "Online",
+    "start": "2026-11-04",
+    "deadline": "2026-12-04",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://ai-for-medicine.devpost.com/",
+    "source": "Devpost (page 2+)",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "oblivion-ctf",
+    "name": "Oblivion CTF",
+    "theme": "Cybersecurity CTF",
+    "tags": [
+      "cybersecurity ctf"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-04",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.insiderone.in/go/event/0bd04041-ec66-4bec-b3a6-259a9485eb53",
+    "source": "Indian college (IIT)",
+    "dateNote": "start: Open now; deadline: ~Dec 4, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "reactive-omni-buildathon",
+    "name": "Reactive Omni Buildathon",
+    "theme": "Web3, automation",
+    "tags": [
+      "web3",
+      "automation"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-05",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://dorahacks.io/hackathon",
+    "source": "DoraHacks",
+    "dateNote": "start: Ongoing; deadline: ~Dec 5, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "slay-hacks-s",
+    "name": "SLAY HACKS (S)",
+    "theme": "AI, open ended",
+    "tags": [
+      "ai",
+      "open ended"
+    ],
+    "mode": "Online",
+    "start": "2026-11-07",
+    "deadline": "2026-12-07",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://slayy-hacks.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "learn-ar-with-specs",
+    "name": "Learn AR with SPECS",
+    "theme": "AR lens software, AI",
+    "tags": [
+      "ar lens software",
+      "ai"
+    ],
+    "mode": "Online",
+    "start": "2026-11-10",
+    "deadline": "2026-12-07",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://learn-specs.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "reddits-game-of-the-day",
+    "name": "Reddit's Game of the Day",
+    "theme": "Web games (Devvit)",
+    "tags": [
+      "web games (devvit)"
+    ],
+    "mode": "Online",
+    "start": "2026-11-11",
+    "deadline": "2026-12-08",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://redditgameofday2026.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "build-your-first-ai-app-s",
+    "name": "Build Your First AI App (S)",
+    "theme": "AI, web",
+    "tags": [
+      "ai",
+      "web"
+    ],
+    "mode": "Online",
+    "start": "2026-10-27",
+    "deadline": "2026-12-09",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://build-your-first-ai-app.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "safespace-hacks-s",
+    "name": "SafeSpace Hacks (S)",
+    "theme": "Cybersecurity",
+    "tags": [
+      "cybersecurity"
+    ],
+    "mode": "Online",
+    "start": "2026-10-17",
+    "deadline": "2026-12-09",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://safespace-hacks.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "agentic-ai-hackathon-2026",
+    "name": "Agentic AI Hackathon 2026",
+    "theme": "Agentic AI",
+    "tags": [
+      "agentic ai"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-09",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://unstop.com/hackathons/agentic-ai-hackathon-2026-proton-solutions-1828890",
+    "source": "Unstop",
+    "dateNote": "start: Open now; deadline: ~Dec 9, 2026 (reg., approx.)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "build-with-cmc-api-hackathon",
+    "name": "Build with CMC: API Hackathon",
+    "theme": "Crypto APIs",
+    "tags": [
+      "crypto apis"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-09",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://dorahacks.io/hackathon",
+    "source": "DoraHacks",
+    "dateNote": "start: Ongoing; deadline: ~Dec 9, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "ai-openbuild-s",
+    "name": "AI OpenBuild (S)",
+    "theme": "AI",
+    "tags": [
+      "ai"
+    ],
+    "mode": "Online",
+    "start": "2026-11-05",
+    "deadline": "2026-12-10",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://ai-openbuild.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "promptwaves",
+    "name": "promptwaves",
+    "theme": "Open, AI prompting",
+    "tags": [
+      "open",
+      "ai prompting"
+    ],
+    "mode": "Online",
+    "start": "2026-12-09",
+    "deadline": "2026-12-10",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://promptwaves.devfolio.co/",
+    "source": "Devfolio",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "snow-code",
+    "name": "Snow Code",
+    "theme": "Software dev",
+    "tags": [
+      "software dev"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-10",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://unstop.com/hackathons/snow-code-stampers-1828497",
+    "source": "Unstop",
+    "dateNote": "start: Open now; deadline: ~Dec 10, 2026 (reg., approx.)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "green-shift-hacks-s",
+    "name": "Green Shift Hacks (S)",
+    "theme": "Sustainability, social good",
+    "tags": [
+      "sustainability",
+      "social good"
+    ],
+    "mode": "Online",
+    "start": "2026-10-18",
+    "deadline": "2026-12-10",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://green-shift-hacks.devpost.com/",
+    "source": "Devpost (page 2+)",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "peninsula-innovation-hackathon-s",
+    "name": "Peninsula Innovation Hackathon (S)",
+    "theme": "Open ended",
+    "tags": [
+      "open ended"
+    ],
+    "mode": "Online",
+    "start": "2026-11-10",
+    "deadline": "2026-12-10",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://peninsula-innovation-hackathon.devpost.com/",
+    "source": "Devpost (page 2+)",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "aws-msp-ai-hackathon",
+    "name": "AWS MSP AI Hackathon",
+    "theme": "Agentic AI, cloud",
+    "tags": [
+      "agentic ai",
+      "cloud"
+    ],
+    "mode": "Online",
+    "start": "2026-11-02",
+    "deadline": "2026-12-11",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://aws-agentic-msp.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "relate-by-neo4j",
+    "name": "Relate by Neo4j",
+    "theme": "Databases, AI agents, open source",
+    "tags": [
+      "databases",
+      "ai agents",
+      "open source"
+    ],
+    "mode": "Online",
+    "start": "2026-11-11",
+    "deadline": "2026-12-11",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://relate.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "hackday-dec",
+    "name": "Hackday Dec",
+    "theme": "AI, software",
+    "tags": [
+      "ai",
+      "software"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-11",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://unstop.com/hackathons/hackday-dec-trishulx-1828678",
+    "source": "Unstop",
+    "dateNote": "start: Open now; deadline: ~Dec 11, 2026 (reg., approx.)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "aevum-builder-challenge-1",
+    "name": "Aevum Builder Challenge #1",
+    "theme": "AI, payments, Solidity",
+    "tags": [
+      "ai",
+      "payments",
+      "solidity"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-11",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://dorahacks.io/hackathon",
+    "source": "DoraHacks",
+    "dateNote": "start: Ongoing; deadline: ~Dec 11, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "agent-arena-evidence-mining",
+    "name": "Agent Arena: Evidence Mining",
+    "theme": "AI agents, forecasting",
+    "tags": [
+      "ai agents",
+      "forecasting"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-11",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://dorahacks.io/hackathon",
+    "source": "DoraHacks",
+    "dateNote": "start: Ongoing; deadline: ~Dec 11, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "promptwars-x-nexora",
+    "name": "PromptWars x NEXORA",
+    "theme": "AI prompting",
+    "tags": [
+      "ai prompting"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-12",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://unstop.com/hackathons/promptwars-x-nexora-promptwars-x-nexora-nexora-navyug-1817824",
+    "source": "Unstop",
+    "dateNote": "start: Open now; deadline: ~Dec 12, 2026 (reg., approx.)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "hackodisha-6-0",
+    "name": "HackOdisha 6.0",
+    "theme": "Open",
+    "tags": [
+      "open"
+    ],
+    "mode": "Online",
+    "start": "2026-12-11",
+    "deadline": "2026-12-13",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://hackodisha-6a.devfolio.co/",
+    "source": "Devfolio",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "ai-agent-development-and-enhancement-hackathon",
+    "name": "AI Agent Development & Enhancement Hackathon",
+    "theme": "Agentic AI",
+    "tags": [
+      "agentic ai"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-13",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://unstop.com/hackathons/ai-agent-development-enhancement-hackathon-proton-solutions-1829674",
+    "source": "Unstop",
+    "dateNote": "start: Open now; deadline: ~Dec 13, 2026 (reg., approx.)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "innovateher-girls-who-code-s-13",
+    "name": "InnovateHER: Girls Who Code (S, 13+)",
+    "theme": "Open, social good",
+    "tags": [
+      "open",
+      "social good"
+    ],
+    "mode": "Online",
+    "start": "2026-11-10",
+    "deadline": "2026-12-13",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://hackathon-girls-who-code.devpost.com/",
+    "source": "Devpost (page 2+)",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "opencode-2026",
+    "name": "OpenCode 2026",
+    "theme": "Open source contribution",
+    "tags": [
+      "open source contribution"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-13",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.insiderone.in/go/event/18b68fa8-e7aa-4a91-bb99-748a772dd0ad",
+    "source": "Indian college (IIIT)",
+    "dateNote": "start: Open now; deadline: ~Dec 13, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "comemor-contributor-challenge",
+    "name": "CoMemor Contributor Challenge",
+    "theme": "Software, open source",
+    "tags": [
+      "software",
+      "open source"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-14",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://unstop.com/hackathons/comemor-contributor-challenge-comemor-1825938",
+    "source": "Unstop",
+    "dateNote": "start: Open now; deadline: ~Dec 14, 2026 (reg., approx.)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "silicon-valley-buildathon-s",
+    "name": "Silicon Valley Buildathon (S)",
+    "theme": "Open ended, low-code",
+    "tags": [
+      "open ended",
+      "low-code"
+    ],
+    "mode": "Online",
+    "start": "2026-11-08",
+    "deadline": "2026-12-15",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://silicon-valley-buildathon.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "atlas-hackathon-2026-prompt-to-product",
+    "name": "ATLAS Hackathon 2026: Prompt to Product",
+    "theme": "AI, UI/UX",
+    "tags": [
+      "ai",
+      "ui",
+      "ux"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-15",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.insiderone.in/go/event/240ec9ba-749a-4afd-91bf-157a26480a96",
+    "source": "Indian college",
+    "dateNote": "start: Open now; deadline: ~Dec 15, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "hackz26",
+    "name": "HackZ'26",
+    "theme": "Security, AI/ML",
+    "tags": [
+      "security",
+      "ai",
+      "ml"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-15",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.insiderone.in/go/event/836381bf-14a2-4f61-a16b-5ab4e50b4b17",
+    "source": "Indian college",
+    "dateNote": "start: Open now; deadline: ~Dec 15, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "gnome-tavern-hackathon",
+    "name": "Gnome Tavern Hackathon",
+    "theme": "Go smart contracts, dApps",
+    "tags": [
+      "go smart contracts",
+      "dapps"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-17",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://dorahacks.io/hackathon",
+    "source": "DoraHacks",
+    "dateNote": "start: Ongoing; deadline: ~Dec 17, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "codewarriors-india-2026",
+    "name": "CodeWarriors India 2026",
+    "theme": "Full-stack, web",
+    "tags": [
+      "full-stack",
+      "web"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-17",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.insiderone.in/go/event/1162f637-b0ce-4af5-876e-ba618a080b9e",
+    "source": "insiderOne aggregator",
+    "dateNote": "start: Open now; deadline: ~Dec 17, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "ai-agents-for-founders-hetic-college-s-teams-2-4",
+    "name": "AI Agents for Founders (HETIC) (college S, teams 2-4)",
+    "theme": "AI agents",
+    "tags": [
+      "ai agents"
+    ],
+    "mode": "Online",
+    "start": "2026-11-04",
+    "deadline": "2026-12-18",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://ai-agents-founders-hetic-26.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "cortensor-hackathon-5",
+    "name": "Cortensor Hackathon #5",
+    "theme": "Agentic AI",
+    "tags": [
+      "agentic ai"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-19",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://dorahacks.io/hackathon",
+    "source": "DoraHacks",
+    "dateNote": "start: Ongoing; deadline: ~Dec 19, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "accessed-hacks-s",
+    "name": "AccessED Hacks (S)",
+    "theme": "Education software",
+    "tags": [
+      "education software"
+    ],
+    "mode": "Online",
+    "start": "2026-10-17",
+    "deadline": "2026-12-20",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://accessed-hacks.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "arbiter-hacks-v1-s-13",
+    "name": "Arbiter Hacks V1 (S, 13+)",
+    "theme": "AI, open ended",
+    "tags": [
+      "ai",
+      "open ended"
+    ],
+    "mode": "Online",
+    "start": "2026-10-20",
+    "deadline": "2026-12-20",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://arbiter-hacks-v1.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "codegeist-2026",
+    "name": "Codegeist 2026",
+    "theme": "AI, Forge apps, dev tools",
+    "tags": [
+      "ai",
+      "forge apps",
+      "dev tools"
+    ],
+    "mode": "Online",
+    "start": "2026-10-27",
+    "deadline": "2026-12-22",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://codegeist2026.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "inceptrix-3-0",
+    "name": "Inceptrix 3.0",
+    "theme": "Open, web",
+    "tags": [
+      "open",
+      "web"
+    ],
+    "mode": "Hybrid",
+    "start": "2026-11-05",
+    "deadline": "2026-12-24",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://inceptrix-hackathon.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": [],
+    "modeNote": "Hybrid (Bengaluru finale Feb 19-20, 2027)"
+  },
+  {
+    "id": "terminal-3-build-scale-agent-micro-grant",
+    "name": "Terminal 3 Build+Scale Agent Micro Grant",
+    "theme": "AI agents, security",
+    "tags": [
+      "ai agents",
+      "security"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-24",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://dorahacks.io/hackathon",
+    "source": "DoraHacks",
+    "dateNote": "start: Ongoing; deadline: ~Dec 24, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "genhacks-s-13",
+    "name": "GenHacks (S, 13+)",
+    "theme": "AI, open",
+    "tags": [
+      "ai",
+      "open"
+    ],
+    "mode": "Online",
+    "start": "2026-11-01",
+    "deadline": "2026-12-26",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://genhacks-open.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "interactup-nexus-national-hackathon",
+    "name": "InteractUp Nexus National Hackathon",
+    "theme": "UI/UX, software",
+    "tags": [
+      "ui",
+      "ux",
+      "software"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-27",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://unstop.com/hackathons/interactup-nexus-national-hackathon-interactup-1828645",
+    "source": "Unstop",
+    "dateNote": "start: Open now; deadline: ~Dec 27, 2026 (reg. closes, approx.)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "finance-next-hackathon-2026",
+    "name": "Finance Next Hackathon 2026",
+    "theme": "Fintech software",
+    "tags": [
+      "fintech software"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-27",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://unstop.com/hackathons/finance-next-hackathon-2026-proton-solutions-1827472",
+    "source": "Unstop",
+    "dateNote": "start: Open now; deadline: ~Dec 27, 2026 (reg., approx.)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "ptcg-ai-battle-challenge-playground",
+    "name": "PTCG AI Battle Challenge Playground",
+    "theme": "AI agents, simulation",
+    "tags": [
+      "ai agents",
+      "simulation"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-27",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.kaggle.com/competitions",
+    "source": "Kaggle (Google)",
+    "dateNote": "start: Ongoing; deadline: ~Dec 27, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "hackrush-2026-s",
+    "name": "Hackrush 2026 (S)",
+    "theme": "Open",
+    "tags": [
+      "open"
+    ],
+    "mode": "Online",
+    "start": "2026-11-08",
+    "deadline": "2026-12-30",
+    "india": "likely",
+    "studentsOnly": true,
+    "link": "https://www.hackathonradar.com/database/hackathon/hackrush-2026",
+    "source": "Indian college",
+    "dateNote": "deadline: ~Dec 30, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "algobharat-regional-hackathons",
+    "name": "AlgoBharat Regional Hackathons",
+    "theme": "Web3, agentic commerce",
+    "tags": [
+      "web3",
+      "agentic commerce"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": "2026-12-31",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://dorahacks.io/hackathon",
+    "source": "DoraHacks",
+    "dateNote": "start: Ongoing; deadline: ~Dec 31, 2026",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "innovart-2027-s-13",
+    "name": "InnovArt 2027 (S, 13+)",
+    "theme": "Art + tech, open",
+    "tags": [
+      "art + tech",
+      "open"
+    ],
+    "mode": "Online",
+    "start": "2026-08-23",
+    "deadline": "2027-01-02",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://innovart2027.devpost.com/",
+    "source": "Devpost (page 2+)",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "open-agentic-web-challenge",
+    "name": "Open Agentic Web Challenge",
+    "theme": "Agentic AI, web",
+    "tags": [
+      "agentic ai",
+      "web"
+    ],
+    "mode": "Online",
+    "start": "2026-11-11",
+    "deadline": "2027-01-11",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://cognizant-agenticweb.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "cloud9-x-jetbrains-skys-the-limit",
+    "name": "Cloud9 x JetBrains: Sky's The Limit",
+    "theme": "AI, databases, esports data",
+    "tags": [
+      "ai",
+      "databases",
+      "esports data"
+    ],
+    "mode": "Online",
+    "start": "2026-11-17",
+    "deadline": "2027-01-12",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://cloud9.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "syntax-summit-s",
+    "name": "Syntax Summit (S)",
+    "theme": "DevOps, AI",
+    "tags": [
+      "devops",
+      "ai"
+    ],
+    "mode": "Online",
+    "start": "2026-07-18",
+    "deadline": "2027-01-14",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://syntax-summit.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "code-for-humanity-s",
+    "name": "Code for Humanity (S)",
+    "theme": "AI, web, education",
+    "tags": [
+      "ai",
+      "web",
+      "education"
+    ],
+    "mode": "Online",
+    "start": "2026-07-16",
+    "deadline": "2027-01-15",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://code-for-humanity.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "contextcon-remember-everything",
+    "name": "ContextCon: Remember Everything",
+    "theme": "AI agents, memory (Meko)",
+    "tags": [
+      "ai agents",
+      "memory (meko)"
+    ],
+    "mode": "Online",
+    "start": "2026-11-07",
+    "deadline": "2027-01-17",
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.hackerearth.com/lp/challenges/contextcon",
+    "source": "HackerEarth",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "cosmo-hacks-2026-s-13",
+    "name": "Cosmo Hacks 2026 (S, 13+)",
+    "theme": "Student/community tech",
+    "tags": [
+      "student",
+      "community tech"
+    ],
+    "mode": "Online",
+    "start": "2026-12-19",
+    "deadline": "2027-01-18",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://cosmohacks.devpost.com/",
+    "source": "Devpost (page 2+)",
+    "dateNote": "start: Dec 19, 2026 (reg. open)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "unihacks-s-13-18",
+    "name": "unihacks (S, 13-18)",
+    "theme": "Education, social good",
+    "tags": [
+      "education",
+      "social good"
+    ],
+    "mode": "Online",
+    "start": "2026-11-15",
+    "deadline": "2027-01-25",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://unihacks-youth.devpost.com/",
+    "source": "Devpost (page 2+)",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "developerweek-2027-hackathon",
+    "name": "DeveloperWeek 2027 Hackathon",
+    "theme": "Open, dev tools",
+    "tags": [
+      "open",
+      "dev tools"
+    ],
+    "mode": "Hybrid",
+    "start": "2027-01-25",
+    "deadline": "2027-02-11",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://developerweek-2027-hackathon.devpost.com/",
+    "source": "Devpost (page 2+)",
+    "dateNote": "start: Jan 25, 2027 (reg. open)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": [],
+    "modeNote": "Hybrid (Santa Clara + online)"
+  },
+  {
+    "id": "teens-in-ai-global-challenge-2027-s-13",
+    "name": "Teens in AI Global Challenge 2027 (S, 13+)",
+    "theme": "AI, web, databases",
+    "tags": [
+      "ai",
+      "web",
+      "databases"
+    ],
+    "mode": "Online",
+    "start": "2026-11-15",
+    "deadline": "2027-02-15",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://teens-in-ai.devpost.com/",
+    "source": "Devpost",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "imagine-cup-2027-early-stage-startups",
+    "name": "Imagine Cup 2027 (early-stage startups)",
+    "theme": "AI software startups",
+    "tags": [
+      "ai software startups"
+    ],
+    "mode": "Online",
+    "start": "2026-11-02",
+    "deadline": "2027-02-28",
+    "india": "verified",
+    "studentsOnly": false,
+    "link": "https://imaginecup.microsoft.com/",
+    "source": "Microsoft (official)",
+    "dateNote": "start: Open (review from Nov 2, 2026)",
+    "status": "none",
+    "notes": "",
+    "extraLinks": [],
+    "modeNote": "Online (Award Force application)"
+  },
+  {
+    "id": "phystech-2027-s",
+    "name": "PhysTech 2027 (S)",
+    "theme": "Health, physical activity tech",
+    "tags": [
+      "health",
+      "physical activity tech"
+    ],
+    "mode": "Online",
+    "start": "2026-11-04",
+    "deadline": "2027-06-26",
+    "india": "verified",
+    "studentsOnly": true,
+    "link": "https://phystech2027.devpost.com/",
+    "source": "Devpost (page 2+)",
+    "dateNote": "",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  },
+  {
+    "id": "squares-in-squares",
+    "name": "Squares in Squares",
+    "theme": "Optimization, algorithms",
+    "tags": [
+      "optimization",
+      "algorithms"
+    ],
+    "mode": "Online",
+    "start": null,
+    "deadline": null,
+    "india": "likely",
+    "studentsOnly": false,
+    "link": "https://www.kaggle.com/competitions",
+    "source": "Kaggle (Google)",
+    "dateNote": "start: Ongoing; deadline: ~Jul 2027",
+    "status": "none",
+    "notes": "",
+    "extraLinks": []
+  }
+]
